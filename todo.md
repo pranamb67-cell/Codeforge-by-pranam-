@@ -9,3 +9,5 @@
 - [x] Verify the updated contact layout and save a new checkpoint.
 - [x] Separate Instagram and email into independent contact panels with distinct visual treatments.
 - [x] Verify the separated panels on desktop and mobile, then save a new checkpoint.
+- [x] Add Tanish’s separate Instagram panel for @maybe.tanishh.
+- [x] Verify all contact panels on desktop and mobile, then save a new checkpoint.
