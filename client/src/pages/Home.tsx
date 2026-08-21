@@ -3,7 +3,7 @@
  * paper inserts, Forge Amber signals, asymmetric sections, and motion that clarifies rather than decorates.
  */
 import { useState } from "react";
-import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2, Copy, Github, Instagram, Menu, Sparkles, Terminal, X } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2, Copy, Github, Instagram, Mail, Menu, Sparkles, Terminal, X } from "lucide-react";
 import { toast } from "sonner";
 
 const heroImage = "/manus-storage/codeforge-hero_8af923e2.png";
@@ -91,7 +91,7 @@ export default function Home() {
           </div>
           <div className="mt-16 grid gap-4 border-t border-white/10 pt-8 md:grid-cols-[1fr_1.4fr]">
             <div className="flex items-center gap-3 font-mono text-xs text-white/45"><Code2 size={15} className="text-[#E8A23A]" /> codeforge / pranam</div>
-            <a href="https://www.instagram.com/not_your_pranam/" target="_blank" rel="noreferrer" className="group flex items-center justify-between border border-[#E8A23A]/50 bg-[#E8A23A] p-5 text-[#151514] transition hover:-translate-y-1 hover:bg-white md:p-6"><div><div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#151514]/55">Contact us / Instagram</div><div className="mt-2 font-display text-2xl font-bold tracking-[-0.04em]">@not_your_pranam</div><div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#151514]/60">Open the conversation</div></div><Instagram size={30} strokeWidth={1.5} className="transition group-hover:rotate-12" /></a>
+            <div className="grid gap-3 sm:grid-cols-2"><a href="https://www.instagram.com/not_your_pranam/" target="_blank" rel="noreferrer" className="group flex items-center justify-between border border-[#E8A23A]/50 bg-[#E8A23A] p-5 text-[#151514] transition hover:-translate-y-1 hover:bg-white md:p-6"><div><div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#151514]/55">Contact us / Instagram</div><div className="mt-2 font-display text-2xl font-bold tracking-[-0.04em]">@not_your_pranam</div><div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#151514]/60">Open the conversation</div></div><Instagram size={30} strokeWidth={1.5} className="transition group-hover:rotate-12" /></a><a href="mailto:pranamb67@gmail.com" className="group flex items-center justify-between border border-white/15 bg-[#20201D] p-5 text-white transition hover:-translate-y-1 hover:border-[#E8A23A]/70 md:p-6"><div><div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#E8A23A]">Contact us / Email</div><div className="mt-2 break-all font-display text-xl font-bold tracking-[-0.04em] md:text-2xl">pranamb67@gmail.com</div><div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-white/45">Send a message</div></div><Mail size={30} strokeWidth={1.5} className="text-[#E8A23A] transition group-hover:-rotate-12" /></a></div>
           </div>
         </div>
       </section>
