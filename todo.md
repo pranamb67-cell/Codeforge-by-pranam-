@@ -7,3 +7,5 @@
 - [x] Verify the Instagram link and responsive layout, then save a new checkpoint.
 - [x] Add pranamb67@gmail.com as a clickable email contact option.
 - [x] Verify the updated contact layout and save a new checkpoint.
+- [x] Separate Instagram and email into independent contact panels with distinct visual treatments.
+- [x] Verify the separated panels on desktop and mobile, then save a new checkpoint.
