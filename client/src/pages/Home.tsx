@@ -3,7 +3,7 @@
  * paper inserts, Forge Amber signals, asymmetric sections, and motion that clarifies rather than decorates.
  */
 import { useState } from "react";
-import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2, Copy, Github, Menu, Sparkles, Terminal, X } from "lucide-react";
+import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2, Copy, Github, Instagram, Menu, Sparkles, Terminal, X } from "lucide-react";
 import { toast } from "sonner";
 
 const heroImage = "/manus-storage/codeforge-hero_8af923e2.png";
@@ -89,7 +89,10 @@ export default function Home() {
             <article className="group border border-white/15 bg-[#20201D] p-6 transition duration-200 hover:-translate-y-1 hover:border-[#E8A23A]/70 md:p-8"><div className="flex items-start justify-between"><div><div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#E8A23A]">01 / Owner</div><h3 className="mt-5 font-display text-4xl font-bold tracking-[-0.06em] text-white">Pranam</h3></div><div className="grid h-12 w-12 place-items-center border border-[#E8A23A]/50 font-display text-xl text-[#E8A23A]">P<span className="sr-only">Pranam</span></div></div><p className="mt-8 max-w-[420px] leading-relaxed text-white/60">The builder behind Codeforge—setting the direction, shaping the systems, and turning complex ideas into useful software.</p><div className="mt-10 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] text-white/35"><Terminal size={14} className="text-[#E8A23A]" /> direction / craft / code</div></article>
             <article className="group border border-white/15 bg-[#F3F0E8] p-6 text-[#151514] transition duration-200 hover:-translate-y-1 hover:border-[#E8A23A] md:mt-10 md:p-8"><div className="flex items-start justify-between"><div><div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#A66A15]">02 / Supporter</div><h3 className="mt-5 font-display text-4xl font-bold tracking-[-0.06em]">Tanish</h3></div><div className="grid h-12 w-12 place-items-center border border-[#A66A15]/50 font-display text-xl text-[#A66A15]">T<span className="sr-only">Tanish</span></div></div><p className="mt-8 max-w-[420px] leading-relaxed text-black/60">The steady force behind the work—keeping the signal clear, the momentum real, and the best ideas moving forward.</p><div className="mt-10 flex items-center gap-2 font-mono text-[10px] uppercase tracking-[0.15em] text-black/40"><Sparkles size={14} className="text-[#A66A15]" /> support / clarity / momentum</div></article>
           </div>
-          <div className="mt-16 flex flex-wrap items-center justify-between gap-8 border-t border-white/10 pt-6"><div className="flex items-center gap-3 font-mono text-xs text-white/45"><Code2 size={15} className="text-[#E8A23A]" /> codeforge / pranam</div><button onClick={() => toast.success("Thanks for stopping by the workbench.")} className="font-mono text-[10px] uppercase tracking-[0.16em] text-[#E8A23A] transition hover:text-white">Say hello <ArrowUpRight className="ml-1 inline" size={13} /></button></div>
+          <div className="mt-16 grid gap-4 border-t border-white/10 pt-8 md:grid-cols-[1fr_1.4fr]">
+            <div className="flex items-center gap-3 font-mono text-xs text-white/45"><Code2 size={15} className="text-[#E8A23A]" /> codeforge / pranam</div>
+            <a href="https://www.instagram.com/not_your_pranam/" target="_blank" rel="noreferrer" className="group flex items-center justify-between border border-[#E8A23A]/50 bg-[#E8A23A] p-5 text-[#151514] transition hover:-translate-y-1 hover:bg-white md:p-6"><div><div className="font-mono text-[10px] uppercase tracking-[0.18em] text-[#151514]/55">Contact us / Instagram</div><div className="mt-2 font-display text-2xl font-bold tracking-[-0.04em]">@not_your_pranam</div><div className="mt-2 font-mono text-[10px] uppercase tracking-[0.14em] text-[#151514]/60">Open the conversation</div></div><Instagram size={30} strokeWidth={1.5} className="transition group-hover:rotate-12" /></a>
+          </div>
         </div>
       </section>
 
