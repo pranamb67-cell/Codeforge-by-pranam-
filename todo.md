@@ -34,3 +34,5 @@
 - [x] Verify the custom cursor and save a new checkpoint.
 - [x] Add a terminal boot-up sequence loading screen before the main content.
 - [x] Verify the boot transition and save a new checkpoint.
+- [x] Add a mechanical keyboard typing sound effect during boot-up.
+- [x] Verify audio-safe boot behavior and save a new checkpoint.

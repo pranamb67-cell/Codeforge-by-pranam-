@@ -1,8 +1,8 @@
 /**
- * Terminal Atelier reminder: compose this page like an editorial workbench—dark graphite surfaces,
+ * Premium Security Atelier reminder: compose this page like an editorial security workbench—deep black surfaces,
  * paper inserts, Forge Amber signals, asymmetric sections, and motion that clarifies rather than decorates.
  */
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2, Copy, Github, Instagram, Mail, Menu, Sparkles, Terminal, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -17,7 +17,52 @@ function scrollToId(id: string) {
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
   const [booting, setBooting] = useState(true);
+  const [soundEnabled, setSoundEnabled] = useState(false);
+  const audioContextRef = useRef<AudioContext | null>(null);
   const [typedHeading, setTypedHeading] = useState("");
+
+  const enableBootSound = () => {
+    if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
+    if (!audioContextRef.current) audioContextRef.current = new AudioContext();
+    void audioContextRef.current.resume();
+    setSoundEnabled(true);
+  };
+
+  const playKeyClick = () => {
+    const context = audioContextRef.current;
+    if (!context || context.state !== "running") return;
+    const now = context.currentTime;
+    const gain = context.createGain();
+    gain.gain.setValueAtTime(0.0001, now);
+    gain.gain.exponentialRampToValueAtTime(0.16, now + 0.001);
+    gain.gain.exponentialRampToValueAtTime(0.0001, now + 0.055);
+    gain.connect(context.destination);
+    const click = context.createOscillator();
+    click.type = "square";
+    click.frequency.setValueAtTime(170 + Math.random() * 40, now);
+    click.frequency.exponentialRampToValueAtTime(90, now + 0.045);
+    click.connect(gain);
+    click.start(now);
+    click.stop(now + 0.06);
+  };
+
+  useEffect(() => {
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) return;
+    const unlock = () => enableBootSound();
+    window.addEventListener("pointerdown", unlock, { once: true });
+    window.addEventListener("keydown", unlock, { once: true });
+    return () => {
+      window.removeEventListener("pointerdown", unlock);
+      window.removeEventListener("keydown", unlock);
+    };
+  }, []);
+
+  useEffect(() => {
+    if (!soundEnabled || !booting) return;
+    const soundTimer = window.setInterval(playKeyClick, 110);
+    return () => window.clearInterval(soundTimer);
+  }, [soundEnabled, booting]);
 
   useEffect(() => {
     const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 700 : 2400;
@@ -50,7 +95,7 @@ export default function Home() {
 
   return (
     <>
-      {booting && <div className="boot-screen fixed inset-0 z-[100] flex items-center justify-center bg-[#050708] px-6 text-[#EEF5ED]" role="status" aria-label="Loading Codeforge"><div className="w-full max-w-[620px] font-mono text-xs"><div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4"><span className="text-[#B7FF5A]">code/forge :: secure_shell</span><span className="text-white/35">v1.0.0</span></div><div className="space-y-3 text-white/55"><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> mounting builder workspace</p><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> scanning attack surfaces</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> loading ethical hacking protocols</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> bringing the signal online<span className="animate-pulse">_</span></p></div><div className="mt-10 h-1 overflow-hidden bg-white/10"><div className="boot-progress h-full bg-[#B7FF5A]" /></div><div className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.16em] text-white/35"><span>initializing</span><span>access granted</span></div></div></div>}
+      {booting && <div className="boot-screen fixed inset-0 z-[100] flex items-center justify-center bg-[#050708] px-6 text-[#EEF5ED]" role="status" aria-label="Loading Codeforge"><div className="w-full max-w-[620px] font-mono text-xs"><div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4"><span className="text-[#B7FF5A]">code/forge :: secure_shell</span><span className="text-white/35">v1.0.0</span></div><div className="space-y-3 text-white/55"><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> mounting builder workspace</p><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> scanning attack surfaces</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> loading ethical hacking protocols</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> bringing the signal online<span className="animate-pulse">_</span></p></div><button onClick={enableBootSound} className="glitch-hover mt-8 border border-[#B7FF5A]/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[#B7FF5A] transition hover:bg-[#B7FF5A] hover:text-[#050708]">{soundEnabled ? "terminal audio: active" : "enable terminal audio"}</button><div className="mt-10 h-1 overflow-hidden bg-white/10"><div className="boot-progress h-full bg-[#B7FF5A]" /></div><div className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.16em] text-white/35"><span>initializing</span><span>access granted</span></div></div></div>}
       <main className="min-h-screen overflow-hidden bg-[#080B0D] text-[#EEF5ED] selection:bg-[#B7FF5A] selection:text-[#080B0D]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#080B0D]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-10">
