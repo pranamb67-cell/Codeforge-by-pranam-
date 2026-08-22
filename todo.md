@@ -30,3 +30,5 @@
 - [x] Verify button hover behavior and save a new checkpoint.
 - [x] Add a subtle matrix digital-rain background animation.
 - [x] Verify readability and reduced-motion behavior, then save a new checkpoint.
+- [x] Add a terminal block or crosshair cursor style.
+- [x] Verify the custom cursor and save a new checkpoint.
