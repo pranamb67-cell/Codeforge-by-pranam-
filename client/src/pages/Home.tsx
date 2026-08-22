@@ -75,7 +75,7 @@ export default function Home() {
   }, [soundEnabled, booting]);
 
   useEffect(() => {
-    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 700 : 2400;
+    const delay = 3000;
     const timer = window.setTimeout(() => setBooting(false), delay);
     return () => window.clearTimeout(timer);
   }, []);

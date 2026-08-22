@@ -24,14 +24,14 @@ main { position: relative; z-index: 1; }
 .glitch-hover:hover::after { opacity: 1; }
 
 
-.boot-screen { animation: bootFade 2600ms cubic-bezier(.23,1,.32,1) forwards; }
+.boot-screen { animation: bootFade 3000ms cubic-bezier(.23,1,.32,1) forwards; }
 .boot-line { opacity: 0; transform: translateX(-8px); animation: bootLine 420ms cubic-bezier(.23,1,.32,1) forwards; }
 .boot-line:nth-child(1) { animation-delay: 160ms; }
 .boot-line:nth-child(2) { animation-delay: 420ms; }
 .boot-line:nth-child(3) { animation-delay: 680ms; }
 .boot-line:nth-child(4) { animation-delay: 940ms; }
-.boot-progress { width: 0; animation: bootProgress 1900ms cubic-bezier(.23,1,.32,1) 120ms forwards; }
+.boot-progress { width: 0; animation: bootProgress 2800ms cubic-bezier(.23,1,.32,1) 120ms forwards; }
 @keyframes bootLine { to { opacity: 1; transform: translateX(0); } }
 @keyframes bootProgress { to { width: 100%; } }
 @keyframes bootFade { 0%, 80% { opacity: 1; } 100% { opacity: 0; visibility: hidden; } }
-@media (prefers-reduced-motion: reduce) { .boot-screen { animation-duration: 700ms; } .boot-line { animation: none; opacity: 1; transform: none; } .boot-progress { animation-duration: 500ms; animation-delay: 0ms; } }
+@media (prefers-reduced-motion: reduce) { .boot-screen { animation-duration: 3000ms; } .boot-line { animation: none; opacity: 1; transform: none; } .boot-progress { animation-duration: 500ms; animation-delay: 0ms; } }

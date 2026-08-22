@@ -38,3 +38,5 @@
 - [x] Verify audio-safe boot behavior and save a new checkpoint.
 - [x] Add a simulated CPU and memory system-status widget.
 - [x] Verify live telemetry behavior and save a new checkpoint.
+- [x] Extend the boot-up intro to exactly 3 seconds.
+- [x] Verify the synchronized transition and save a new checkpoint.
