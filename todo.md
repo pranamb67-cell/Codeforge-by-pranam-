@@ -26,3 +26,5 @@
 - [x] Verify the hover treatment and save a new checkpoint.
 - [x] Add a terminal typing animation with blinking cursor to the main heading.
 - [x] Verify the animation and save a new checkpoint.
+- [x] Add a glitch hover effect to the main and interactive buttons.
+- [x] Verify button hover behavior and save a new checkpoint.

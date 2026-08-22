@@ -12,4 +12,11 @@
 body::before { content: ""; position: fixed; inset: 0; pointer-events: none; opacity: .035; z-index: 60; background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.6'/%3E%3C/svg%3E"); }
 @media (prefers-reduced-motion: no-preference) { .nav-link, button, a { transition-duration: 180ms; transition-timing-function: cubic-bezier(.23,1,.32,1); } }
 
-@media (prefers-reduced-motion: reduce) { .animate-pulse { animation: none !important; } }
+@media (prefers-reduced-motion: reduce) { .animate-pulse { animation: none !important; } .glitch-hover:hover { animation: none !important; } }
+
+@keyframes terminalGlitch { 0%, 100% { transform: translate(0); text-shadow: none; } 18% { transform: translate(-1px, 1px); text-shadow: 2px 0 #63E6FF, -2px 0 #B7FF5A; } 36% { transform: translate(1px, -1px); text-shadow: -2px 0 #63E6FF, 2px 0 #B7FF5A; } 54% { transform: translate(0); text-shadow: 1px 0 #63E6FF; } 72% { transform: translate(-1px, 0); text-shadow: -1px 0 #B7FF5A; } }
+.glitch-hover { position: relative; isolation: isolate; overflow: hidden; }
+.glitch-hover::after { content: ""; position: absolute; inset: 0; pointer-events: none; opacity: 0; background: repeating-linear-gradient(0deg, transparent 0 5px, rgba(8,11,13,.15) 5px 6px); mix-blend-mode: multiply; }
+.glitch-hover:hover { animation: terminalGlitch 260ms steps(2, end) infinite; box-shadow: 0 0 24px rgba(183,255,90,.28); }
+.glitch-hover:hover::after { opacity: 1; }
+
