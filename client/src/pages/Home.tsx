@@ -16,7 +16,14 @@ function scrollToId(id: string) {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [booting, setBooting] = useState(true);
   const [typedHeading, setTypedHeading] = useState("");
+
+  useEffect(() => {
+    const delay = window.matchMedia("(prefers-reduced-motion: reduce)").matches ? 700 : 2400;
+    const timer = window.setTimeout(() => setBooting(false), delay);
+    return () => window.clearTimeout(timer);
+  }, []);
 
   useEffect(() => {
     const phrase = "Make it" + String.fromCharCode(10) + "make sense.";
@@ -42,7 +49,9 @@ export default function Home() {
   };
 
   return (
-    <main className="min-h-screen overflow-hidden bg-[#080B0D] text-[#EEF5ED] selection:bg-[#B7FF5A] selection:text-[#080B0D]">
+    <>
+      {booting && <div className="boot-screen fixed inset-0 z-[100] flex items-center justify-center bg-[#050708] px-6 text-[#EEF5ED]" role="status" aria-label="Loading Codeforge"><div className="w-full max-w-[620px] font-mono text-xs"><div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4"><span className="text-[#B7FF5A]">code/forge :: secure_shell</span><span className="text-white/35">v1.0.0</span></div><div className="space-y-3 text-white/55"><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> mounting builder workspace</p><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> scanning attack surfaces</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> loading ethical hacking protocols</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> bringing the signal online<span className="animate-pulse">_</span></p></div><div className="mt-10 h-1 overflow-hidden bg-white/10"><div className="boot-progress h-full bg-[#B7FF5A]" /></div><div className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.16em] text-white/35"><span>initializing</span><span>access granted</span></div></div></div>}
+      <main className="min-h-screen overflow-hidden bg-[#080B0D] text-[#EEF5ED] selection:bg-[#B7FF5A] selection:text-[#080B0D]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#080B0D]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-10">
           <button onClick={() => scrollToId("top")} className="group flex items-center gap-3 text-left" aria-label="Back to top">
@@ -117,6 +126,7 @@ export default function Home() {
       </section>
 
       <footer className="border-t border-white/10 bg-[#050708] px-5 py-6 md:px-10"><div className="mx-auto flex max-w-[1440px] flex-col justify-between gap-3 font-mono text-[10px] uppercase tracking-[0.14em] text-white/30 sm:flex-row"><span>© 2026 Codeforge by Pranam</span><span>Supported with intent by Tanish</span><span className="flex items-center gap-2"><Sparkles size={12} className="text-[#B7FF5A]" /> build / learn / share</span></div></footer>
-    </main>
+      </main>
+    </>
   );
 }
