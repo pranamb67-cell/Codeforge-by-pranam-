@@ -18,3 +18,5 @@
 - [x] Verify the standalone contact section on desktop and mobile, then save a new checkpoint.
 - [x] Fix Contact Us so it is isolated and horizontal on desktop.
 - [x] Verify the corrected layout on desktop and mobile, then save a new checkpoint.
+- [x] Fix cramped or mixed letter rendering in Contact Us text.
+- [x] Verify contact typography on desktop and mobile, then save a new checkpoint.
