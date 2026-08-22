@@ -28,3 +28,5 @@
 - [x] Verify the animation and save a new checkpoint.
 - [x] Add a glitch hover effect to the main and interactive buttons.
 - [x] Verify button hover behavior and save a new checkpoint.
+- [x] Add a subtle matrix digital-rain background animation.
+- [x] Verify readability and reduced-motion behavior, then save a new checkpoint.
