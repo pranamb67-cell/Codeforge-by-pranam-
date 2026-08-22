@@ -22,3 +22,5 @@
 - [x] Verify contact typography on desktop and mobile, then save a new checkpoint.
 - [x] Order Contact Us rows: Pranam Instagram, Pranam email, Tanish Instagram.
 - [x] Verify the exact order and save a new checkpoint.
+- [x] Add a premium neon-green hover effect to the Contact Us links.
+- [x] Verify the hover treatment and save a new checkpoint.
