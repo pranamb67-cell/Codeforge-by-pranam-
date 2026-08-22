@@ -2,7 +2,7 @@
  * Terminal Atelier reminder: compose this page like an editorial workbench—dark graphite surfaces,
  * paper inserts, Forge Amber signals, asymmetric sections, and motion that clarifies rather than decorates.
  */
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { ArrowDownRight, ArrowUpRight, Check, ChevronRight, Code2, Copy, Github, Instagram, Mail, Menu, Sparkles, Terminal, X } from "lucide-react";
 import { toast } from "sonner";
 
@@ -16,6 +16,25 @@ function scrollToId(id: string) {
 
 export default function Home() {
   const [menuOpen, setMenuOpen] = useState(false);
+  const [typedHeading, setTypedHeading] = useState("");
+
+  useEffect(() => {
+    const phrase = "Make it" + String.fromCharCode(10) + "make sense.";
+    const reducedMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    if (reducedMotion) {
+      setTypedHeading(phrase);
+      return;
+    }
+    let index = 0;
+    const timer = window.setInterval(() => {
+      index += 1;
+      setTypedHeading(phrase.slice(0, index));
+      if (index >= phrase.length) window.clearInterval(timer);
+    }, 85);
+    return () => window.clearInterval(timer);
+  }, []);
+
+  const [firstLine, secondLine = ""] = typedHeading.split(String.fromCharCode(10));
 
   const handleCopy = () => {
     navigator.clipboard?.writeText("npx create-codeforge@latest");
@@ -51,7 +70,7 @@ export default function Home() {
         <div className="relative mx-auto grid min-h-[686px] max-w-[1440px] grid-cols-1 items-end gap-10 px-5 pb-16 md:grid-cols-[1.1fr_.9fr] md:px-10 md:pb-24">
           <div className="max-w-[760px]">
             <div className="mb-8 flex items-center gap-3 font-mono text-[11px] uppercase tracking-[0.2em] text-[#B7FF5A]"><span className="h-px w-9 bg-[#B7FF5A]" />[ build log / 001 ]</div>
-            <h1 className="font-display text-[clamp(4rem,10vw,9.2rem)] font-bold leading-[0.84] tracking-[-0.08em] text-[#F5F1E8]">Make it<br /><span className="ml-[8vw] text-[#B7FF5A]">make sense.</span></h1>
+            <h1 className="font-display text-[clamp(4rem,10vw,9.2rem)] font-bold leading-[0.84] tracking-[-0.08em] text-[#F5F1E8]" aria-label="Make it make sense."><span>{firstLine}</span><br /><span className="ml-[8vw] text-[#B7FF5A]">{secondLine}</span><span className="ml-2 inline-block h-[0.78em] w-[0.08em] translate-y-[0.06em] animate-pulse bg-[#B7FF5A] align-baseline" aria-hidden="true" /></h1>
             <p className="mt-10 max-w-[500px] text-lg leading-relaxed text-white/65 md:ml-[8vw]">A focused corner of the internet for programmers and ethical hackers who care about the invisible part: the systems, exploits, and craft behind useful software.</p>
             <div className="mt-10 flex flex-wrap items-center gap-4 md:ml-[8vw]"><button onClick={() => scrollToId("workbench")} className="group flex items-center gap-4 bg-[#B7FF5A] px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-[#080B0D] transition hover:bg-white active:scale-[.98]">Open the workbench <ArrowDownRight size={16} className="transition group-hover:translate-x-1 group-hover:translate-y-1" /></button><span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/40">Owner: Pranam</span></div>
           </div>

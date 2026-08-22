@@ -24,3 +24,5 @@
 - [x] Verify the exact order and save a new checkpoint.
 - [x] Add a premium neon-green hover effect to the Contact Us links.
 - [x] Verify the hover treatment and save a new checkpoint.
+- [x] Add a terminal typing animation with blinking cursor to the main heading.
+- [x] Verify the animation and save a new checkpoint.
