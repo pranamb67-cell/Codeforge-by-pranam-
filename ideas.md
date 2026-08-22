@@ -60,3 +60,7 @@ The mark is a compact bracket-and-spark symbol: a squared open bracket represent
 
 ### Signature Brand Color
 **Forge Amber — #E8A23A**
+
+## Style Decisions
+
+The visual system now shifts toward a **Premium Security Atelier**: deep black and blue-black surfaces, electric lime as the primary action signal, icy cyan reserved for telemetry, and pale green paper surfaces for contrast. The site explicitly serves programmers and ethical hackers, with copy focused on attack surfaces, weak assumptions, safer systems, and understanding where software breaks. The direction remains editorial and restrained rather than default neon cyberpunk.
