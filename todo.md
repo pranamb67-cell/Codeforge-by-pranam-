@@ -14,3 +14,5 @@
 - [x] Refresh the color system and visual styling for a premium security-lab feel.
 - [x] Update copy and UI signals for programmers and ethical hackers.
 - [x] Verify responsive visuals and save a new checkpoint.
+- [x] Move Contact Us into a standalone section separate from the maker panels.
+- [x] Verify the standalone contact section on desktop and mobile, then save a new checkpoint.
