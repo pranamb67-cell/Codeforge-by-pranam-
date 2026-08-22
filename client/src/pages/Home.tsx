@@ -19,7 +19,17 @@ export default function Home() {
   const [booting, setBooting] = useState(true);
   const [soundEnabled, setSoundEnabled] = useState(false);
   const audioContextRef = useRef<AudioContext | null>(null);
+  const telemetryTickRef = useRef(0);
+  const [systemStatus, setSystemStatus] = useState({ cpu: 42, memory: 68 });
   const [typedHeading, setTypedHeading] = useState("");
+
+  useEffect(() => {
+    const timer = window.setInterval(() => {
+      const tick = telemetryTickRef.current++;
+      setSystemStatus({ cpu: 38 + ((tick * 7) % 28), memory: 61 + ((tick * 5) % 24) });
+    }, 1600);
+    return () => window.clearInterval(timer);
+  }, []);
 
   const enableBootSound = () => {
     if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
@@ -129,7 +139,7 @@ export default function Home() {
             <div className="mt-10 flex flex-wrap items-center gap-4 md:ml-[8vw]"><button onClick={() => scrollToId("workbench")} className="glitch-hover group flex items-center gap-4 bg-[#B7FF5A] px-5 py-3 font-mono text-xs font-bold uppercase tracking-[0.15em] text-[#080B0D] transition hover:bg-white active:scale-[.98]">Open the workbench <ArrowDownRight size={16} className="transition group-hover:translate-x-1 group-hover:translate-y-1" /></button><span className="font-mono text-[10px] uppercase tracking-[0.15em] text-white/40">Owner: Pranam</span></div>
           </div>
           <div className="mb-3 justify-self-start md:justify-self-end">
-            <div className="w-[260px] border border-white/20 bg-[#080B0D]/75 p-4 font-mono text-[11px] leading-6 text-white/50 backdrop-blur-md md:w-[300px]"><div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3 text-[#B7FF5A]"><span>current_focus</span><span className="h-2 w-2 animate-pulse bg-[#B7FF5A]" /></div><div><span className="text-white/30">01</span> mapping attack surfaces</div><div><span className="text-white/30">02</span> breaking weak assumptions</div><div><span className="text-white/30">03</span> building safer systems</div><div className="mt-3 border-t border-white/10 pt-3 text-white/30">status: <span className="text-[#B7FF5A]">in progress_</span></div></div>
+            <div className="w-[260px] border border-white/20 bg-[#080B0D]/75 p-4 font-mono text-[11px] leading-6 text-white/50 backdrop-blur-md md:w-[300px]"><div className="mb-3 flex items-center justify-between border-b border-white/10 pb-3 text-[#B7FF5A]"><span>current_focus</span><span className="h-2 w-2 animate-pulse bg-[#B7FF5A]" /></div><div><span className="text-white/30">01</span> mapping attack surfaces</div><div><span className="text-white/30">02</span> breaking weak assumptions</div><div><span className="text-white/30">03</span> building safer systems</div><div className="mt-3 border-t border-white/10 pt-3 text-white/30">status: <span className="text-[#B7FF5A]">in progress_</span></div><div className="mt-4 border-t border-white/10 pt-3"><div className="mb-3 flex items-center justify-between text-[10px] uppercase tracking-[0.16em] text-white/35"><span>system_status</span><span className="text-[#63E6FF]">simulated</span></div><div className="space-y-3"><div><div className="mb-1 flex justify-between text-[10px] text-white/45"><span>cpu_load</span><span className="text-[#B7FF5A]">{systemStatus.cpu}%</span></div><div className="h-1 bg-white/10"><div className="h-full bg-[#B7FF5A] transition-[width] duration-500" style={{ width: `${systemStatus.cpu}%` }} /></div></div><div><div className="mb-1 flex justify-between text-[10px] text-white/45"><span>memory</span><span className="text-[#63E6FF]">{systemStatus.memory}%</span></div><div className="h-1 bg-white/10"><div className="h-full bg-[#63E6FF] transition-[width] duration-500" style={{ width: `${systemStatus.memory}%` }} /></div></div></div></div></div>
           </div>
         </div>
       </section>

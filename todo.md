@@ -36,3 +36,5 @@
 - [x] Verify the boot transition and save a new checkpoint.
 - [x] Add a mechanical keyboard typing sound effect during boot-up.
 - [x] Verify audio-safe boot behavior and save a new checkpoint.
+- [x] Add a simulated CPU and memory system-status widget.
+- [x] Verify live telemetry behavior and save a new checkpoint.
