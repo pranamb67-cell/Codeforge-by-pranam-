@@ -38,6 +38,12 @@ export default function Home() {
     setSoundEnabled(true);
   };
 
+  const skipIntro = () => {
+    setSoundEnabled(false);
+    setBooting(false);
+    void audioContextRef.current?.suspend();
+  };
+
   const playKeyClick = () => {
     const context = audioContextRef.current;
     if (!context || context.state !== "running") return;
@@ -105,7 +111,7 @@ export default function Home() {
 
   return (
     <>
-      {booting && <div className="boot-screen fixed inset-0 z-[100] flex items-center justify-center bg-[#050708] px-6 text-[#EEF5ED]" role="status" aria-label="Loading Codeforge"><div className="w-full max-w-[620px] font-mono text-xs"><div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4"><span className="text-[#B7FF5A]">code/forge :: secure_shell</span><span className="text-white/35">v1.0.0</span></div><div className="space-y-3 text-white/55"><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> mounting builder workspace</p><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> scanning attack surfaces</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> loading ethical hacking protocols</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> bringing the signal online<span className="animate-pulse">_</span></p></div><button onClick={enableBootSound} className="glitch-hover mt-8 border border-[#B7FF5A]/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[#B7FF5A] transition hover:bg-[#B7FF5A] hover:text-[#050708]">{soundEnabled ? "terminal audio: active" : "enable terminal audio"}</button><div className="mt-10 h-1 overflow-hidden bg-white/10"><div className="boot-progress h-full bg-[#B7FF5A]" /></div><div className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.16em] text-white/35"><span>initializing</span><span>access granted</span></div></div></div>}
+      {booting && <div className="boot-screen fixed inset-0 z-[100] flex items-center justify-center bg-[#050708] px-6 text-[#EEF5ED]" role="status" aria-label="Loading Codeforge"><div className="w-full max-w-[620px] font-mono text-xs"><div className="mb-8 flex items-center justify-between border-b border-white/15 pb-4"><span className="text-[#B7FF5A]">code/forge :: secure_shell</span><span className="text-white/35">v1.0.0</span></div><div className="space-y-3 text-white/55"><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> mounting builder workspace</p><p className="boot-line"><span className="text-[#B7FF5A]">[ OK ]</span> scanning attack surfaces</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> loading ethical hacking protocols</p><p className="boot-line"><span className="text-[#63E6FF]">[ RUN ]</span> bringing the signal online<span className="animate-pulse">_</span></p></div><button onClick={enableBootSound} className="glitch-hover mt-8 border border-[#B7FF5A]/60 px-4 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-[#B7FF5A] transition hover:bg-[#B7FF5A] hover:text-[#050708]">{soundEnabled ? "terminal audio: active" : "enable terminal audio"}</button><button onClick={skipIntro} className="ml-3 border-b border-white/25 px-1 py-2 font-mono text-[10px] uppercase tracking-[0.16em] text-white/45 transition hover:border-[#B7FF5A] hover:text-[#B7FF5A]">skip intro ↗</button><div className="mt-10 h-1 overflow-hidden bg-white/10"><div className="boot-progress h-full bg-[#B7FF5A]" /></div><div className="mt-3 flex justify-between text-[10px] uppercase tracking-[0.16em] text-white/35"><span>initializing</span><span>access granted</span></div></div></div>}
       <main className="min-h-screen overflow-hidden bg-[#080B0D] text-[#EEF5ED] selection:bg-[#B7FF5A] selection:text-[#080B0D]">
       <header className="fixed inset-x-0 top-0 z-50 border-b border-white/10 bg-[#080B0D]/90 backdrop-blur-xl">
         <div className="mx-auto flex h-[74px] max-w-[1440px] items-center justify-between px-5 md:px-10">

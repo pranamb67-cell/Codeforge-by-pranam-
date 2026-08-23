@@ -40,3 +40,5 @@
 - [x] Verify live telemetry behavior and save a new checkpoint.
 - [x] Extend the boot-up intro to exactly 3 seconds.
 - [x] Verify the synchronized transition and save a new checkpoint.
+- [x] Add a Skip intro button to the boot-up sequence.
+- [x] Verify skip behavior and save a new checkpoint.
