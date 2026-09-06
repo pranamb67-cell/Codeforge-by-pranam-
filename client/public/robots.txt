@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pranamb67-cell.github.io/Codeforge-by-pranam-/sitemap.xml
